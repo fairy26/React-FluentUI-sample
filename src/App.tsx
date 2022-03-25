@@ -29,6 +29,12 @@ export const App: React.FunctionComponent = () => {
         setCount(0);
     };
 
+    const [isMale, setIsMale] = useState(true);
+
+    const changeSex = () => {
+        setIsMale(!isMale);
+    };
+
     return (
         <Stack
             horizontalAlign="center"
@@ -37,9 +43,13 @@ export const App: React.FunctionComponent = () => {
             styles={stackStyles}
             tokens={stackTokens}
         >
-            <Text variant="xxLarge">{count}</Text>
+            <Text variant="xxLarge">
+                吉田（{isMale ? '男' : '女'}）：所持金{count * 100}円
+            </Text>
             <PrimaryButton text="+" onClick={changeCount} />
             <DefaultButton text="Reset" onClick={resetCount} />
+
+            <PrimaryButton text="性転換" onClick={changeSex} />
         </Stack>
     );
 };
