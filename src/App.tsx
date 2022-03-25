@@ -14,9 +14,9 @@ const stackStyles: Partial<IStackStyles> = {
 export const App: React.FunctionComponent = () => {
     const [count, setCount] = useState(0);
 
-    function changeCount() {
+    const changeCount = () => {
         setCount(count + 1);
-    }
+    };
 
     return (
         <Stack
