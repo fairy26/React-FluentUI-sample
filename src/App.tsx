@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Stack, Text, IStackTokens, IStackStyles, PrimaryButton } from '@fluentui/react';
+import {
+    Stack,
+    Text,
+    IStackTokens,
+    IStackStyles,
+    PrimaryButton,
+    DefaultButton,
+} from '@fluentui/react';
 
 const stackTokens: IStackTokens = { childrenGap: 15 };
 const stackStyles: Partial<IStackStyles> = {
@@ -18,6 +25,10 @@ export const App: React.FunctionComponent = () => {
         setCount(count + 1);
     };
 
+    const resetCount = () => {
+        setCount(0);
+    };
+
     return (
         <Stack
             horizontalAlign="center"
@@ -28,6 +39,7 @@ export const App: React.FunctionComponent = () => {
         >
             <Text variant="xxLarge">{count}</Text>
             <PrimaryButton text="+" onClick={changeCount} />
+            <DefaultButton text="Reset" onClick={resetCount} />
         </Stack>
     );
 };
