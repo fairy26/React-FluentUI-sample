@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import {
     Stack,
     Text,
@@ -29,17 +29,19 @@ export const App: React.FunctionComponent = () => {
 
     const [todos, setTodos] = useState<string[]>([]);
     const [completedTodos, setCompletedTodos] = useState<string[]>([]);
-    const [text, setText] = useState('');
+    // const [text, setText] = useState('');
 
-    const onInputChange = useCallback((_: any, newValue?: string) => {
-        setText(newValue || '');
-    }, []);
+    // const onInputChange = useCallback((_: any, newValue?: string) => {
+    //     setText(newValue || '');
+    // }, []);
+
+    const [text, onInputChange] = useReducer((_: string, event: any) => event.target.value, '');
 
     const onClickAdd = useCallback(() => {
         if (text === '') return;
         const newTodos = [...todos, text];
         setTodos(newTodos);
-        setText('');
+        // setText('');
     }, [text, todos]);
 
     const done = useCallback(
