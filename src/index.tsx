@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { App } from './App';
 import { mergeStyles } from '@fluentui/react';
 import reportWebVitals from './reportWebVitals';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
 
 // Inject some global styles
 mergeStyles({
@@ -13,6 +14,7 @@ mergeStyles({
     },
 });
 
+initializeIcons(/* optional base url */);
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
